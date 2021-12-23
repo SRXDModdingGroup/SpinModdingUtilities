@@ -1,5 +1,5 @@
-# Slime Modding Utilities (SMU)
-A utility mod for Nickelodeon All Star Brawl. This mod does nothing on its own, but has a bunch of nifty features that modders can make use of.
+# Spin Modding Utilities (SMU) (Once Slime Modding Utilities)
+A utility mod originally for Nickelodeon All Star Brawl, forked for Spin Rhythm XD. This mod does nothing on its own, but has a bunch of nifty features that modders can make use of.
 
 -----
 
