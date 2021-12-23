@@ -1,9 +1,0 @@
-﻿{
-  "name": "Slime_Modding_Utilities",
-  "version_number": "1.0.0",
-  "website_url": "https://github.com/DeadlyKitten/SlimeModdingUtilities",
-  "description": "A utility mod that provides common functionality for modders.",
-  "dependencies": [
-    "BepInEx-BepInExPack_NASB-5.4.16"
-  ]
-}

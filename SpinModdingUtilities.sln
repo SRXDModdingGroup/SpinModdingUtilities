@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimeModdingUtilities", "SlimeModdingUtilities\SlimeModdingUtilities.csproj", "{6435B31B-6836-4277-A9F1-9A72FDB41930}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpinModdingUtilities", "SpinModdingUtilities\SpinModdingUtilities.csproj", "{6435B31B-6836-4277-A9F1-9A72FDB41930}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

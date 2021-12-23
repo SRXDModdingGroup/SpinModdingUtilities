@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SMU</RootNamespace>
-    <AssemblyName>SlimeModdingUtilities</AssemblyName>
+    <AssemblyName>SpinModdingUtilities</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\SlimeModdingUtilities.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\SpinModdingUtilities.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,11 +31,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\SlimeModdingUtilities.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\SpinModdingUtilities.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="External\manifest.json" />
-    <None Include="SlimeModdingUtilities.csproj.user" />
+    <None Include="SpinModdingUtilities.csproj.user" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.5.5.0, Culture=neutral, processorArchitecture=MSIL">
@@ -72,8 +71,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\Characters.cs" />
-    <Compile Include="Constants\Stages.cs" />
     <Compile Include="Events\EventHelper.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Plugin.cs" />
@@ -86,7 +83,6 @@
     <Compile Include="Utilities\SharedCoroutineStarter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="External\icon.png" />
     <Content Include="Refs\0Harmony.dll" />
     <Content Include="Refs\Assembly-CSharp.dll" />
     <Content Include="Refs\BepInEx.dll" />
@@ -97,9 +93,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Debug (
-copy /Y "$(TargetPath)" "$(GameDir)\BepInEx\plugins"
-)</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(TargetPath)" "D:\Steam\steamapps\common\Spin Rhythm\BepInEx\plugins"</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
