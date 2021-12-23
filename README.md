@@ -11,18 +11,6 @@ Contains handy extension methods for safely firing off events, without the worry
 public static void InvokeAll(this Action action, params object[] args)
 ```
 
-### SMU.Constants
-
-Contains methods to translate character and stage IDs into their human-readable names, and vice versa.
-
-```cs
-public static bool TryGetIdFromName(string name, out string id);
-public static string GetIdFromName(string name);
-public static bool TryGetNameFromId(string id, out string name);
-public static string GetNameFromId(string id);
-public static List<string> GetCharacterIds();
-public static List<string> GetStageIds();
-```
 
 ### SMU.Reflection
 
