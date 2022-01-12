@@ -79,7 +79,7 @@
     <Compile Include="Reflection\Accessor.cs" />
     <Compile Include="Reflection\Async\SingleCreationValueCache.cs" />
     <Compile Include="Reflection\ReflectionUtil.cs" />
-    <Compile Include="Utilities\DeferredInsertion.cs" />
+    <Compile Include="Utilities\DeferredListOperation.cs" />
     <Compile Include="Utilities\ImageHelper.cs" />
     <Compile Include="Utilities\PatternMatching.cs" />
     <Compile Include="Utilities\SharedCoroutineStarter.cs" />
