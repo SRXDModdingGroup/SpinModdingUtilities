@@ -78,10 +78,12 @@
     <Compile Include="Reflection\Accessor.cs" />
     <Compile Include="Reflection\Async\SingleCreationValueCache.cs" />
     <Compile Include="Reflection\ReflectionUtil.cs" />
+    <Compile Include="Utilities\Bindable.cs" />
     <Compile Include="Utilities\DeferredListOperation.cs" />
     <Compile Include="Utilities\HashUtility.cs" />
     <Compile Include="Utilities\IHashable.cs" />
     <Compile Include="Utilities\ImageHelper.cs" />
+    <Compile Include="Utilities\IReadOnlyBindable.cs" />
     <Compile Include="Utilities\PatternMatching.cs" />
     <Compile Include="Utilities\SharedCoroutineStarter.cs" />
   </ItemGroup>
