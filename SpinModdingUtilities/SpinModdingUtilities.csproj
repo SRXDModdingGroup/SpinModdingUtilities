@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <LangVersion>8.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,9 +34,6 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\SpinModdingUtilities.xml</DocumentationFile>
   </PropertyGroup>
-  <ItemGroup>
-    <None Include="SpinModdingUtilities.csproj.user" />
-  </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.5.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -72,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\EventHelper.cs" />
+    <Compile Include="Extensions\CodeInstructionExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +79,8 @@
     <Compile Include="Reflection\Async\SingleCreationValueCache.cs" />
     <Compile Include="Reflection\ReflectionUtil.cs" />
     <Compile Include="Utilities\DeferredListOperation.cs" />
+    <Compile Include="Utilities\HashUtility.cs" />
+    <Compile Include="Utilities\IHashable.cs" />
     <Compile Include="Utilities\ImageHelper.cs" />
     <Compile Include="Utilities\PatternMatching.cs" />
     <Compile Include="Utilities\SharedCoroutineStarter.cs" />
@@ -95,7 +96,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetPath)" "D:\Steam\steamapps\common\Spin Rhythm\BepInEx\plugins"</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(TargetPath)" "C:\Program Files (x86)\Steam\steamapps\common\Spin Rhythm\BepInEx\plugins"</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
