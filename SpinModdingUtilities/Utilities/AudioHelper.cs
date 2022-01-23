@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.IO;
+using UnityEngine;
 
 namespace SMU.Utilities
 {
@@ -18,6 +19,7 @@ namespace SMU.Utilities
             using (WWW www = new WWW(BepInEx.Utility.ConvertToWWWFormat(path)))
 #pragma warning restore 0618
             {
+                if (!File.Exists(path)) return null;
                 try
                 {
                     AudioClip clip = www.GetAudioClip();
