@@ -2,8 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace SMU.Utilities
-{
+namespace SMU.Utilities {
     /// <summary>
     /// Utility class for running coroutines from non-Monobehaviours and queueing actions to execute on the next frame.
     /// </summary>
@@ -12,7 +11,7 @@ namespace SMU.Utilities
         private static Dispatcher Instance {
             get {
                 if (instance == null)
-                    instance = new GameObject("Shared Coroutine Starter").AddComponent<Dispatcher>();
+                    instance = new GameObject("Dispatcher").AddComponent<Dispatcher>();
 
                 return instance;
             }
