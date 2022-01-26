@@ -85,7 +85,7 @@
     <Compile Include="Utilities\ImageHelper.cs" />
     <Compile Include="Utilities\IReadOnlyBindable.cs" />
     <Compile Include="Utilities\PatternMatching.cs" />
-    <Compile Include="Utilities\SharedCoroutineStarter.cs" />
+    <Compile Include="Utilities\Dispatcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Refs\0Harmony.dll" />

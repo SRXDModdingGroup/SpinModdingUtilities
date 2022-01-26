@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using SMU.Utilities;
 using UnityEngine;
 
@@ -82,16 +83,16 @@ namespace SMU.Utilities {
             }
         }
         /// <summary>
-        /// Generates a hash number for an array
+        /// Generates a hash number for an IEnumerable
         /// </summary>
-        /// <remarks>The contents of the array must be of type bool, char, int, float, string, Color, IHashable, or Array</remarks>
-        /// <param name="a">The array to hash</param>
+        /// <remarks>The contents of the enumerable must be of type bool, char, int, float, string, Color, IHashable, or IEnumerable</remarks>
+        /// <param name="e">The enumerable to hash</param>
         /// <returns>The hash number</returns>
-        public static int GetStableHash(Array a) {
+        public static int GetStableHash(IEnumerable e) {
             unchecked {
                 int hash = (int) HASH_BIAS;
 
-                foreach (object o in a)
+                foreach (object o in e)
                     hash = hash * HASH_COEFF ^ GetStableHash(o);
 
                 return hash;
@@ -100,7 +101,7 @@ namespace SMU.Utilities {
         /// <summary>
         /// Generates a hash number for an object
         /// </summary>
-        /// <remarks>The object must be of type bool, char, int, float, string, Color, IHashable, or Array</remarks>
+        /// <remarks>The object must be of type bool, char, int, float, string, Color, IHashable, Array, or IEnumerable</remarks>
         /// <param name="o">The object to hash</param>
         /// <returns>The hash number</returns>
         public static int GetStableHash(object o) => o switch {
@@ -111,8 +112,8 @@ namespace SMU.Utilities {
             string s => GetStableHash(s),
             Color c => GetStableHash(c),
             IHashable h => h.GetStableHash(),
-            Array a => GetStableHash(a),
-            _ => throw new ArgumentException("GetStableHash can only be called on objects of type bool, char, int, float, string, Color, IHashable, or Array")
+            IEnumerable e => GetStableHash(e),
+            _ => throw new ArgumentException("GetStableHash can only be called on objects of type bool, char, int, float, string, Color, IHashable, or IEnumerable")
         };
     }
 }
