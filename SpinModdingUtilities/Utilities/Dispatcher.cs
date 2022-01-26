@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SMU.Utilities {
@@ -17,28 +18,35 @@ namespace SMU.Utilities {
             }
         }
 
-        private Action nextFrame;
+        private static List<Action> nextFrame = new List<Action>();
 
         private void Update() {
             lock (nextFrame) {
-                if (nextFrame == null)
+                if (nextFrame.Count == 0)
                     return;
 
-                nextFrame.Invoke();
-                nextFrame = null;
-            }
-        }
+                foreach (var action in nextFrame) {
+                    try {
+                        action();
+                    }
+                    catch (Exception e) {
+                        Plugin.LogError(e.Message);
+                        Plugin.LogError(e.StackTrace);
+                    }
+                }
 
-        private void Queue(Action action) {
-            lock (nextFrame)
-                nextFrame += action;
+                nextFrame.Clear();
+            }
         }
 
         /// <summary>
         /// Queues an action to be executed on the next available frame
         /// </summary>
         /// <param name="action">The action to queue</param>
-        public static void QueueForNextFrame(Action action) => Instance.Queue(action);
+        public static void QueueForNextFrame(Action action) {
+            lock (nextFrame)
+                nextFrame.Add(action);
+        }
 
         /// <summary>
         /// Starts a coroutine, without the need for the calling class to inherit from Monobehaviour.
