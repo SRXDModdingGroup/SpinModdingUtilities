@@ -20,18 +20,25 @@ namespace SMU.Utilities {
         private Action nextFrame;
 
         private void Update() {
-            if (nextFrame == null)
-                return;
-            
-            nextFrame.Invoke();
-            nextFrame = null;
+            lock (nextFrame) {
+                if (nextFrame == null)
+                    return;
+
+                nextFrame.Invoke();
+                nextFrame = null;
+            }
+        }
+
+        private void Queue(Action action) {
+            lock (nextFrame)
+                nextFrame += action;
         }
 
         /// <summary>
         /// Queues an action to be executed on the next available frame
         /// </summary>
         /// <param name="action">The action to queue</param>
-        public static void QueueForNextFrame(Action action) => Instance.nextFrame += action;
+        public static void QueueForNextFrame(Action action) => Instance.Queue(action);
 
         /// <summary>
         /// Starts a coroutine, without the need for the calling class to inherit from Monobehaviour.
