@@ -39,7 +39,7 @@ namespace SMU.Utilities
                 _dictionary = dictionary;
             }
             /// <summary>
-            /// Constructor. Declares T4
+            /// Declares T4
             /// </summary>
             public T4 this[T3 index]
             {
