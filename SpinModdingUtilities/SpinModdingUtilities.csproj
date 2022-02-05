@@ -84,6 +84,7 @@
     <Compile Include="Utilities\IHashable.cs" />
     <Compile Include="Utilities\ImageHelper.cs" />
     <Compile Include="Utilities\IReadOnlyBindable.cs" />
+    <Compile Include="Utilities\BijectiveDictionary.cs" />
     <Compile Include="Utilities\PatternMatching.cs" />
     <Compile Include="Utilities\Dispatcher.cs" />
   </ItemGroup>
@@ -98,7 +99,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetPath)" "C:\Program Files (x86)\Steam\steamapps\common\Spin Rhythm\BepInEx\plugins"</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(TargetPath)" "D:\Steam\steamapps\common\Spin Rhythm\BepInEx\plugins"</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
