@@ -67,6 +67,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Refs\UnityEngine.ImageConversionModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Refs\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Refs\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\EventHelper.cs" />
@@ -78,6 +86,7 @@
     <Compile Include="Reflection\Accessor.cs" />
     <Compile Include="Reflection\Async\SingleCreationValueCache.cs" />
     <Compile Include="Reflection\ReflectionUtil.cs" />
+    <Compile Include="Utilities\AudioHelper.cs" />
     <Compile Include="Utilities\Bindable.cs" />
     <Compile Include="Utilities\DeferredListOperation.cs" />
     <Compile Include="Utilities\HashUtility.cs" />
@@ -91,9 +100,11 @@
     <Content Include="Refs\0Harmony.dll" />
     <Content Include="Refs\Assembly-CSharp.dll" />
     <Content Include="Refs\BepInEx.dll" />
+    <Content Include="Refs\UnityEngine.AudioModule.dll" />
     <Content Include="Refs\UnityEngine.CoreModule.dll" />
     <Content Include="Refs\UnityEngine.dll" />
     <Content Include="Refs\UnityEngine.ImageConversionModule.dll" />
+    <Content Include="Refs\UnityEngine.UnityWebRequestWWWModule.dll" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
