@@ -11,8 +11,7 @@ namespace SMU.Utilities {
         private static Dispatcher instance;
         private static Dispatcher Instance {
             get {
-                if (instance == null)
-                    instance = new GameObject("Dispatcher").AddComponent<Dispatcher>();
+                CheckForInstance();
 
                 return instance;
             }
@@ -44,6 +43,8 @@ namespace SMU.Utilities {
         /// </summary>
         /// <param name="action">The action to queue</param>
         public static void QueueForNextFrame(Action action) {
+            CheckForInstance();
+            
             lock (nextFrame)
                 nextFrame.Add(action);
         }
@@ -54,5 +55,10 @@ namespace SMU.Utilities {
         /// <param name="routine">The Coroutine to start.</param>
         /// <returns>The started Coroutine.</returns>
         public new static Coroutine StartCoroutine(IEnumerator routine) => ((MonoBehaviour)Instance).StartCoroutine(routine);
+
+        private static void CheckForInstance() {
+            if (instance == null)
+                instance = new GameObject("Dispatcher").AddComponent<Dispatcher>();
+        }
     }
 }
