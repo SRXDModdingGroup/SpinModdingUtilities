@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace SMU.Utilities {
     /// <summary>
-    /// Utility class for queueing changes to be made to an enumeration
+    /// Utility class for queueing changes to be made to an enumerable
     /// </summary>
     /// <typeparam name="T">The type of the values to be inserted</typeparam>
-    public class EnumerationOperation<T> {
+    public class EnumerableOperation<T> {
         private readonly struct Insertion : IComparable<Insertion> {
             public int Index { get; }
             public IEnumerable<T> ToInsert { get; }
