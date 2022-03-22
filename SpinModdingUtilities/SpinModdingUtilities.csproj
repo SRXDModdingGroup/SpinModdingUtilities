@@ -89,6 +89,7 @@
     <Compile Include="Utilities\AudioHelper.cs" />
     <Compile Include="Utilities\Bindable.cs" />
     <Compile Include="Utilities\DeferredListOperation.cs" />
+    <Compile Include="Utilities\EnumerationOperation.cs" />
     <Compile Include="Utilities\HashUtility.cs" />
     <Compile Include="Utilities\IHashable.cs" />
     <Compile Include="Utilities\ImageHelper.cs" />
