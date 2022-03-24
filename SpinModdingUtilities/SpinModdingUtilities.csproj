@@ -39,25 +39,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Refs\0Harmony.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-CSharp, Version=2012.1.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Refs\Assembly-CSharp.dll</HintPath>
-    </Reference>
     <Reference Include="BepInEx, Version=5.4.17.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Refs\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Refs\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>Refs\UnityEngine.AssetBundleModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -86,6 +79,7 @@
     <Compile Include="Reflection\Accessor.cs" />
     <Compile Include="Reflection\Async\SingleCreationValueCache.cs" />
     <Compile Include="Reflection\ReflectionUtil.cs" />
+    <Compile Include="Utilities\AssetBundleUtility.cs" />
     <Compile Include="Utilities\AudioHelper.cs" />
     <Compile Include="Utilities\Bindable.cs" />
     <Compile Include="Utilities\DeferredListOperation.cs" />
@@ -102,6 +96,7 @@
     <Content Include="Refs\0Harmony.dll" />
     <Content Include="Refs\Assembly-CSharp.dll" />
     <Content Include="Refs\BepInEx.dll" />
+    <Content Include="Refs\UnityEngine.AssetBundleModule.dll" />
     <Content Include="Refs\UnityEngine.AudioModule.dll" />
     <Content Include="Refs\UnityEngine.CoreModule.dll" />
     <Content Include="Refs\UnityEngine.dll" />
@@ -111,7 +106,6 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetPath)" "D:\Steam\steamapps\common\Spin Rhythm\BepInEx\plugins"</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
