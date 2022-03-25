@@ -34,8 +34,11 @@ namespace SMU {
 
             string path = Path.Combine(directory, $"{name}_bundle\\{name}");
 
-            if (!File.Exists(name))
+            if (!File.Exists(path)) {
+                Plugin.LogWarning($"Asset bundle {path} could not be found");
+                
                 return false;
+            }
             
             bundle = AssetBundle.LoadFromFile(path);
             assetBundles.Add(name, bundle);
