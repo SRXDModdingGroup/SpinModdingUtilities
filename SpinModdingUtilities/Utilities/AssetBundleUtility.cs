@@ -50,14 +50,17 @@ namespace SMU {
         /// <returns>True if the asset bundle was found</returns>
         /// <remarks>Asset bundle must reside in a folder named *name*_bundle</remarks>
         public static bool TryGetAssetBundle(string directory, string name, out AssetBundle bundle) {
-            if (assetBundles.TryGetValue(name, out bundle))
+            if (!TryGetBundlePath(directory, name, out string path)) {
+                bundle = null;
+                
+                return false;
+            }
+            
+            if (assetBundles.TryGetValue(path, out bundle))
                 return true;
 
-            if (!TryGetBundlePath(directory, name, out string path))
-                return false;
-
             bundle = AssetBundle.LoadFromFile(path);
-            assetBundles.Add(name, bundle);
+            assetBundles.Add(path, bundle);
 
             return true;
         }
