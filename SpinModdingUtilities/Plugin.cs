@@ -5,9 +5,9 @@ using System;
 namespace SMU; 
 
 [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
-class Plugin : BaseUnityPlugin
+internal sealed class Plugin : BaseUnityPlugin
 {
-    static Plugin Instance;
+    public static Plugin Instance;
 
     void Awake()
     {

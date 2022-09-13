@@ -1,6 +1,6 @@
 ﻿namespace SMU; 
 
-class PluginInfo
+internal static class PluginInfo
 {
     public const string PLUGIN_GUID = "com.pink.spinrhythm.moddingutils";
     public const string PLUGIN_NAME = "Spin Modding Utilities";
