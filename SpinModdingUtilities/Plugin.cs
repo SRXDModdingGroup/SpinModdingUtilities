@@ -7,9 +7,9 @@ namespace SMU;
 [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
 internal sealed class Plugin : BaseUnityPlugin
 {
-    public static Plugin Instance;
+    public static Plugin Instance { get; private set; }
 
-    void Awake()
+    private void Awake()
     {
         if (Instance)
         {
