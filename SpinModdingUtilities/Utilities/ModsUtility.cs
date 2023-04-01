@@ -13,6 +13,20 @@ public static class ModsUtility {
     private static Dictionary<string, AssetBundle> assetBundles = new();
 
     /// <summary>
+    /// Unloads all asset bundles for a given mod
+    /// </summary>
+    /// <param name="modName">The name of the mod which contains the asset bundles</param>
+    public static void UnloadAssetBundles(string modName) {
+        foreach (string path in Directory.GetFiles(Path.Combine(Paths.PluginPath, modName, "assetBundles"))) {
+            if (!assetBundles.TryGetValue(path, out var bundle))
+                continue;
+            
+            bundle.Unload(true);
+            assetBundles.Remove(path);
+        }
+    }
+
+    /// <summary>
     /// Unloads an asset bundle with the given name for a given mod
     /// </summary>
     /// <param name="modName">The name of the mod which contains the asset bundle</param>
@@ -24,7 +38,7 @@ public static class ModsUtility {
         bundle.Unload(true);
         assetBundles.Remove(path);
     }
-        
+
     /// <summary>
     /// Attempts to get an asset bundle with the given name for a given mod
     /// </summary>
@@ -35,7 +49,7 @@ public static class ModsUtility {
     public static bool TryGetAssetBundle(string modName, string bundleName, out AssetBundle bundle) {
         if (!TryGetBundlePath(modName, bundleName, out string path)) {
             bundle = null;
-                
+            
             return false;
         }
             
@@ -48,32 +62,6 @@ public static class ModsUtility {
         return true;
     }
 
-    /// <summary>
-    /// Attempts to load all assemblies for a given mod
-    /// </summary>
-    /// <param name="modName">The name of the mod</param>
-    /// <returns>True if all assemblies were loaded successfully</returns>
-    public static bool TryLoadMod(string modName) {
-        string directory = Path.Combine(Paths.PluginPath, modName);
-        
-        if (!Directory.Exists(directory))
-            return false;
-
-        bool success = true;
-
-        foreach (string path in Directory.GetFiles(directory, "*.dll")) {
-            try {
-                Assembly.LoadFrom(path);
-            }
-            catch {
-                Plugin.LogError($"Failed to load assembly {path}");
-                success = false;
-            }
-        }
-
-        return success;
-    }
-    
     /// <summary>
     /// Gets the directory path for the mod with a given name
     /// </summary>
@@ -89,9 +77,35 @@ public static class ModsUtility {
     /// <returns>The full path to the file</returns>
     public static string GetModFile(string modName, params string[] paths) => Path.Combine(Paths.PluginPath, modName, Path.Combine(paths));
 
+    /// <summary>
+    /// Loads all asset bundles for a given mod
+    /// </summary>
+    /// <param name="modName">The name of the mod which contains the asset bundles</param>
+    public static Dictionary<string, AssetBundle> LoadAssetBundles(string modName) {
+        var foundBundles = new Dictionary<string, AssetBundle>();
+        
+        foreach (string path in Directory.GetFiles(Path.Combine(Paths.PluginPath, modName, "assetBundles"))) {
+            if (Path.HasExtension(path))
+                continue;
+
+            if (!assetBundles.TryGetValue(path, out var bundle)) {
+                bundle = AssetBundle.LoadFromFile(path);
+
+                if (bundle == null)
+                    continue;
+
+                assetBundles.Add(path, bundle);
+            }
+            
+            foundBundles.Add(Path.GetFileName(path), bundle);
+        }
+
+        return foundBundles;
+    }
+
     private static bool TryGetBundlePath(string modName, string name, out string path) {
         path = Path.Combine(Paths.PluginPath, modName, "assetBundles", name);
 
-        return File.Exists(path);
+        return !Path.HasExtension(path) && File.Exists(path);
     }
 }
